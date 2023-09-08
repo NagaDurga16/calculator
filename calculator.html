@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>calculator</title>
+    <style>
+      table {
+        border: 1px solid black;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgb(89, 86, 86);
+        width: 400px;
+        border-radius: 5%;
+      }
+
+      td {
+        width: 25%;
+      }
+      .display input {
+        background-color: aquamarine;
+        border-radius: 5%;
+        width: 95%;
+        height: 60px;
+        text-align: right;
+        font-size: 35px;
+        margin: 10px;
+      }
+      input[type="button"] {
+        width: 80%;
+        height: 60px;
+        background-color: white;
+        color: black;
+        border-radius: 15%;
+        padding: 10px 20px;
+        font-size: 30px;
+        font-weight: bold;
+        text-decoration: solid;
+        margin: auto;
+      }
+      .y input {
+        background-color: orange;
+      }
+      input:active[type="button"] {
+        background-color: black;
+        box-shadow: inset 0px 0px 5px white;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td colspan="3" class="display">
+          <input type="text" id="result" name="answer" placeholder="0" />
+        </td>
+        <td colspan="1">
+          <input type="button" value="c" onclick="onClickClear()" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="7" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="8" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="9" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="/" onclick="onClickHandler(event)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="4" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="5" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="6" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="*" onclick="onClickHandler(event)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="1" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="2" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="3" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="-" onclick="onClickHandler(event)" />
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <input type="button" value="0" onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="." onclick="onClickHandler(event)" />
+        </td>
+        <td>
+          <input type="button" value="+" onclick="onClickHandler(event)" />
+        </td>
+        <td class="y">
+          <input type="button" value="=" onclick="onResultClickHandler()" />
+        </td>
+      </tr>
+    </table>
+    <script>
+      const resultEl = document.getElementById("result");
+      function onClickHandler(event) {
+        const p = event.target.value;
+        resultEl.value = resultEl.value + p;
+        console.log(p);
+        resultEl.focus();
+      }
+      function onResultClickHandler() {
+        const result = eval(resultEl.value);
+        resultEl.value = result;
+        console.log(resultEl);
+        resultEl.focus();
+      }
+      function onClickClear() {
+        resultEl.value = "";
+      }
+    </script>
+  </body>
+</html>
